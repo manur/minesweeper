@@ -2,13 +2,19 @@
 
 **Toy app built with Electron**
 
-## Building
 
+## Build instructions
+
+### Development
 ```
+cd desktop
 npm install --save-dev
+npm start
 ```
 
+### Production
 ```
+cd desktop
 ./node_modules/electron-packager/cli.js .  \
   --platform=darwin \
   --arch=x64 \

@@ -1,0 +1,31 @@
+{
+  "name": "Minesweeper",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Defuse all mines",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "productName": "Minesweeper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manur/minesweeper.git"
+  },
+  "keywords": [
+    "game",
+    "minesweeper"
+  ],
+  "author": "GitHub",
+  "license": "CC0",
+  "homepage": "https://manur.github.io/minesweeper/",
+  "devDependencies": {
+    "electron-packager": "*",
+    "electron-prebuilt": "^1.2.0"
+  },
+  "dependencies": {
+    "jquery": "*",
+    "underscore": "*",
+    "handlebars": "4.0.5"
+  }
+}

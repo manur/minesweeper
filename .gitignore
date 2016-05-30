@@ -1,1 +1,3 @@
 desktop/node_modules
+desktop/Minesweeper-darwin-x64/Minesweeper.app/Contents/Resources/app/node_modules/electron-installer-dmg/
+desktop/Minesweeper-darwin-x64/Minesweeper.app/Contents/Resources/app/node_modules/appdmg

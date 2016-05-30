@@ -2,7 +2,7 @@
 
 **Toy app built with Electron**
 
-## Usage detailed on <a href='https://manur.github.io/blog/2016-05-30-a-modern-minesweeper-clone'>author's blog</a>
+## Usage detailed on <a href='https://manur.github.io/blog/2016/05/30/a-modern-minesweeper-clone/'>author's blog</a>
 
 
 ## Build instructions

@@ -73,12 +73,23 @@ Board.prototype.markTiles = function() {
   var board = this;
   var col, row, paddedCol, paddedRow;
 
+  var rcs = _.map(this.mineIdx, function(idx) {
+    var colIndex = board.getColIndex(idx);
+    var rowIndex = board.getRowIndex(idx);
+
+    return [colIndex, rowIndex];
+  });
+
+  console.log(rcs);
+
   for(col = 0; col < board.cols; col +=1) {
     for(row = 0; row < board.rows; row +=1) {
       paddedCol = col + 1;
       paddedRow = row + 1;
 
-      if(_.contains(this.mineIdx, col * row - 1)) {
+      if(_.any(rcs, function(idx) {
+        return col === idx[0] &&  row === idx[1];
+      })) {
         // Mark tile as mine
         board._paddedMatrix[paddedCol][paddedRow] = null;
       }

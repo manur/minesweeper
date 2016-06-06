@@ -1,11 +1,7 @@
-const $ = require('jquery');
-const _ = require('underscore');
-Backbone.$ = $;
-const Handlebars = require('handlebars');
+
 const Template = function(templateSelector) {
   return Handlebars.compile($(templateSelector).html());
 };
-
 
 var Model = Backbone.Model.extend({
 
@@ -83,7 +79,7 @@ var Minesweeper = Backbone.View.extend({
               var $col = $('<tr></tr>');
               for(var paddedRow = 1; paddedRow < this.model.paddedMatrix[paddedCol].length - 1; paddedRow += 1) {
                 const elem = this.model.paddedMatrix[paddedCol][paddedRow];
-                const str = (elem === null) ? 'x' : (elem === 0) ? '' : elem;
+                const str = (elem === null) ? '' : (elem === 0) ? '' : elem;
 
                 const $cell = $(this.cellTemplate({
                   text: str,
@@ -101,7 +97,7 @@ var Minesweeper = Backbone.View.extend({
 
   press: function(evt) {
            var $target = $(evt.currentTarget);
-           if($target.closest('td').hasClass('markAsMine')) {
+           if($target.closest('td').hasClass('mark-as-mine')) {
              return;
            }
 
@@ -127,8 +123,45 @@ var Minesweeper = Backbone.View.extend({
 
                $cell.closest('table.board.active').removeClass('active');
 
+               if(terminateEvt.termination === 'complete') {
+                 $('.completed .victory-message').html(this.victoryMessage());
+                 $('.completed').show();
+                 $('.restart-game').show();
+               } else {
+                 // hit a mine
+                 $('.lost .defeat-message').html(this.defeatMessage());
+                 $('.lost').show();
+                 $('.restart-game').show();
+               }
+
+               this.timer.stop();
+
                console.log(terminateEvt.termination);
              },
+
+  victoryMessage: function() {
+                    var items = [
+                      'Victory is your birthright. ',
+                      'Awww, yeah! Nice work. ',
+                      'That\'s some sweet clicking. ',
+                      'Mine marking. Like A Boss. ',
+                      'Winning! '
+                    ];
+
+                    return items[Math.floor(Math.random()*items.length)];
+                  },
+
+
+  defeatMessage: function() {
+                    var items = [
+                      'Oh, dear. Not your day, is it? ',
+                      'Ah! Losing, your old nemesis. ',
+                      ':( Better luck next time. ',
+                      'There\'s always tomorrow... '
+                    ];
+
+                    return items[Math.floor(Math.random()*items.length)];
+                  },
 
   markAsMine: function(evt) {
                       var $target = $(evt.currentTarget);
@@ -160,6 +193,11 @@ var App = Backbone.View.extend({
     },
 
   events: {
+            "click          .reload":   "reload"
+          },
+
+  reload: function() {
+            window.location.reload();
           },
 
   render: function() {

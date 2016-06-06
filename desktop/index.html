@@ -21,12 +21,6 @@
     </div>
   </body>
 
-  <script>
-    // You can also require other files to run in this process
-    require('./renderer.js');
-    const Board = require('./js/core.js');
-  </script>
-
   <script type='text/x-handlebars-template' class='template minesweeper'>
     <table class='board minesweeper active'>
     </table>
@@ -34,25 +28,34 @@
   <script type='text/x-handlebars-template' class='template minesweeper-cell'>
     <td data-padded-column='{{ paddedCol }}' data-padded-row='{{ paddedRow }}' data-is-mine='{{ isMine }}' data-mark='{{ mark }}' class=''>
       <button class='btn'>
-        <span class='mark-as-mine'> x </span>
-        <span class='value'>{{ text }}</span>
+        <span class='mark-as-mine'><img src="images/icon.ico"></span>
+        <span class='value'><div class='red'>{{text}}</div></span>
       </button>
     </td>
   </script>
   <script type='text/x-handlebars-template' class='template app'>
     <h1>
-      <span class='variant'>Minesweeper</span>
+      <img class="icon" src="images/icon.ico">
+      <span class='title'>Minesweeper</span>
+    </h1>
+    <h2>
       <span class='mines-remaining'></span>
       <span class='time-elapsed'></span>
-    </h1>
+    </h2>
     <div class='minesweeper-container'>
     </div>
   </script>
 
   <!-- Electron Javascript -->
+  <script src="node_modules/jquery/dist/jquery.js" charset="utf-8"></script>
+  <script src="node_modules/handlebars/dist/handlebars.js" charset="utf-8"></script>
   <script src="node_modules/underscore/underscore.js" charset="utf-8"></script>
   <script src="backbone/backbone.js" charset="utf-8"></script>
+  <script>
+    Backbone.$ = $;
+  </script>
 
+  <script src="js/core.js" charset="utf-8"></script>
   <script src="js/minesweeper.js" charset="utf-8"></script>
 
 </html>

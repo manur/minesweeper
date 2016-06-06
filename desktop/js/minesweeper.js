@@ -1,11 +1,7 @@
-const $ = require('jquery');
-const _ = require('underscore');
-Backbone.$ = $;
-const Handlebars = require('handlebars');
+
 const Template = function(templateSelector) {
   return Handlebars.compile($(templateSelector).html());
 };
-
 
 var Model = Backbone.Model.extend({
 

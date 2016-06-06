@@ -1,5 +1,3 @@
-const _ = require('underscore');
-
 var Board = function(cols, rows, numMines) {
   var board = this;
 
@@ -138,6 +136,10 @@ Board.prototype.press = function(paddedCol, paddedRow, done) {
   var board = this;
   var opens;
 
+  if(board._pressedMatrix[paddedCol][paddedRow] === 'mine') {
+    return; // no-op
+  }
+
   board._pressedMatrix[paddedCol][paddedRow] = true;
 
   if(_.isNull(board._paddedMatrix[paddedCol][paddedRow])) {
@@ -239,14 +241,12 @@ Board.prototype.openAnyUnopenedNeighbors = function(paddedCol, paddedRow, done) 
       });
 
       if(neighborMark === 0) {
-        process.nextTick(function() {
+        setTimeout(function() {
           board.openAnyUnopenedNeighbors(_paddedCol, _paddedRow, done);
-        });
+        }, 0);
       }
     }
   });
 };
 
-
-module.exports = Board;
 

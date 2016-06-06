@@ -24,6 +24,23 @@
   <script type='text/x-handlebars-template' class='template minesweeper'>
     <table class='board minesweeper active'>
     </table>
+
+    <form class='settings' style='display: none;'>
+      <fieldset>
+        <label>Rows</label>
+        <input class='rows' type='number' val='' />
+      </fieldset>
+
+      <fieldset>
+        <label>Columns</label>
+        <input class='cols' type='number' val='' />
+      </fieldset>
+
+      <fieldset>
+        <label>Number of mines</label>
+        <input class='mines' type='number' val='' />
+      </fieldset>
+    </form>
   </script>
   <script type='text/x-handlebars-template' class='template minesweeper-cell'>
     <td data-padded-column='{{ paddedCol }}' data-padded-row='{{ paddedRow }}' data-is-mine='{{ isMine }}' data-mark='{{ mark }}' class=''>

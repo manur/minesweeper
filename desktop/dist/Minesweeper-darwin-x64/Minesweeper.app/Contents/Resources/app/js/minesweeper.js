@@ -5,10 +5,22 @@ const Template = function(templateSelector) {
 
 var Model = Backbone.Model.extend({
 
+
   initialize: function() {
-                var rows = 16;
-                var cols = 16;
-                var numMines = 10;
+
+                function getParameterByName(name, url) {
+                  if (!url) url = window.location.href;
+                  name = name.replace(/[\[\]]/g, "\\$&");
+                  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                  results = regex.exec(url);
+                  if (!results) return null;
+                  if (!results[2]) return '';
+                  return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }
+
+                var rows = $('input.rows').html() || 16;
+                var cols = $('input.cols').html() || 16;
+                var numMines = $('input.mines').html() || 20;
 
                 this.board = new Board(rows, cols, numMines);
                 this.paddedMatrix = this.board.getPaddedMatrix();

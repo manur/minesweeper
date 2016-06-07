@@ -22,11 +22,13 @@
   "devDependencies": {
     "electron-packager": "*",
     "electron-prebuilt": "^1.2.0",
-    "appdmg": "*"
+    "appdmg": "*",
+    "browserify": "*"
   },
   "dependencies": {
     "jquery": "*",
     "underscore": "*",
-    "handlebars": "4.0.5"
+    "handlebars": "4.0.5",
+    "backbone": "*"
   }
 }

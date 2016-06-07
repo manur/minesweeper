@@ -20,7 +20,7 @@ var Model = Backbone.Model.extend({
 
                 var rows = $('input.rows').html() || 16;
                 var cols = $('input.cols').html() || 16;
-                var numMines = $('input.mines').html() || 20;
+                var numMines = $('input.mines').html() || 40;
 
                 this.board = new Board(rows, cols, numMines);
                 this.paddedMatrix = this.board.getPaddedMatrix();

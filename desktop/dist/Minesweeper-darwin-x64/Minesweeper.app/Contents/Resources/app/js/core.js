@@ -16,7 +16,7 @@ var Board = function(cols, rows, numMines) {
   this.numTiles = numTiles;
 
   if(!numMines) {
-    numMines = Math.floor(Math.sqrt(Math.floor(Math.sqrt(numTiles)))) * 10;
+    numMines = Math.floor(Math.sqrt(Math.floor(Math.sqrt(numTiles)))) * 20;
   }
   this.numMines = numMines;
 

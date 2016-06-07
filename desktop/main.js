@@ -16,8 +16,11 @@ function createWindow () {
   // mainWindow = new BrowserWindow({width: 608, height: 665})
   mainWindow = new BrowserWindow({
     width: 700,
-    height: 770,
-    icon: __dirname + "images/icon.png"
+    height: 860,
+    icon: __dirname + "images/icon.png",
+    webPreferences: {
+      nodeIntegration: false
+    }
   })
 
   // and load the index.html of the app.

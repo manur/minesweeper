@@ -17,6 +17,9 @@ npm start
 ### Production
 ```
 cd desktop
+
+./node_modules/browserify/bin/cmd.js deps.js -o bundle.js && \
+
 ./node_modules/electron-packager/cli.js .  \
   --platform=darwin \
   --arch=x64 \

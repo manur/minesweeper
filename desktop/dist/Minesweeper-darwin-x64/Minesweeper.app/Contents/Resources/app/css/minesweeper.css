@@ -143,3 +143,10 @@ a.reload {
   color: #278a73;
 }
 
+section.credits {
+  margin: 3.5em auto;
+  line-height: 1.5em;
+  text-align: center;
+  opacity: 0.5;
+  font-size: 16px;
+}

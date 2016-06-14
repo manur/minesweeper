@@ -165,8 +165,9 @@ section.credits {
 
 h1 .links {
   font-size: 18px;
-  float: right;
   color: #444;
+  position: absolute;
+  right: 0;
 }
 
 h1 .links .time-elapsed {

@@ -211,7 +211,7 @@ var Minesweeper = Backbone.View.extend({
               },
 
   stopTimer: function() {
-               clearInterval(t);
+               clearInterval(this.timer);
              }
 });
 

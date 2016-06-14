@@ -107,23 +107,6 @@ var Minesweeper = Backbone.View.extend({
             }
           },
 
-  press: function(evt) {
-           var $target = $(evt.currentTarget);
-           if($target.closest('td').hasClass('mark-as-mine')) {
-             return;
-           }
-
-           $target.closest('td').addClass('pressed');
-           var $cell = $target.closest('td')
-
-           var paddedCol = $cell.data('paddedColumn');
-           var paddedRow = $cell.data('paddedRow');
-           this.model.press(paddedCol, paddedRow);
-
-           evt.stopPropagation();
-           evt.preventDefault();
-         },
-
   open: function(openevt) {
           // console.log("openevt", openevt);
           var $cell = this.$el.find('[data-padded-column="' + openevt.paddedCol + '"][data-padded-row="' + openevt.paddedRow + '"]');
@@ -146,7 +129,7 @@ var Minesweeper = Backbone.View.extend({
                  $('.restart-game').show();
                }
 
-               // this.timer.stop();
+               this.stopTimer();
 
                console.log(terminateEvt.termination);
              },
@@ -176,6 +159,8 @@ var Minesweeper = Backbone.View.extend({
                   },
 
   markAsMine: function(evt) {
+                      this.startTimer();
+
                       var $target = $(evt.currentTarget);
                       var $td = $target.closest('td');
                       
@@ -186,9 +171,48 @@ var Minesweeper = Backbone.View.extend({
                       var paddedRow = $cell.data('paddedRow');
                       this.model.markAsMine(paddedCol, paddedRow);
 
+                      this.mineCount();
+                      
                       evt.stopPropagation();
                       evt.preventDefault();
-                    }
+                    },
+
+  mineCount: function() {
+               var $mineCount  = $('.mine-count');
+               var count = this.model.board.numMines - this.model.board.numMinesMarked;
+               if(count > -1 && count < 10) {
+                 count = '0' + count;
+               } else if(count <- -10) {
+                 count = '--';
+               }
+               $mineCount.html(count);
+             },
+
+  startTimer: function() {
+                if(this.timer) {
+                  return;
+                }
+
+                var view = this;
+                var $time = $('.time-elapsed');
+                var setClock = function(time) {
+                  var seconds = time % 60 + '';
+                  if(seconds.length === 1) {
+                    seconds = '0' + seconds;
+                  }
+                  $time.html(Math.floor(time / 60) + ':' + seconds);
+                };
+
+                var start = Date.now();
+                this.timer = setInterval(function() {
+                  setClock(Math.round((Date.now() - start) / 1000));
+                }, 1000);
+
+              },
+
+  stopTimer: function() {
+               clearInterval(t);
+             }
 });
 
 

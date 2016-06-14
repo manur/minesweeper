@@ -14,6 +14,7 @@ var Board = function(cols, rows, numMines) {
   this.cols = cols;
   this.rows = rows;
   this.numTiles = numTiles;
+  this.numMinesMarked = 0;
 
   if(!numMines) {
     numMines = Math.floor(Math.sqrt(Math.floor(Math.sqrt(numTiles)))) * 20;
@@ -205,8 +206,10 @@ Board.prototype.markAsMine = function(paddedCol, paddedRow, done) {
 
   if(board._pressedMatrix[paddedCol][paddedRow] !== 'mine') {
     board._pressedMatrix[paddedCol][paddedRow] = 'mine'; // denotes mark as mine
+    board.numMinesMarked += 1;
   } else {
     board._pressedMatrix[paddedCol][paddedRow] = false; // revert mark
+    board.numMinesMarked -= 1;
   }
 
   if(board.allMinesDetected()) {

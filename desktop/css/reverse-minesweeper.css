@@ -1,9 +1,10 @@
 .window-content {
   background: #ececeb;
+  font-family: 'Inconsolata', 'Courier Sans', Courier, sans-serif;
 }
 
 #app-container {
-  width: 608px;
+  width: 640px;
   margin: 20px auto;
 }
 
@@ -13,8 +14,9 @@
 
 h1 {
   font-size: 28px;
-  margin: 10px 0 50px;
+  margin: 0px 0 30px;
   color: #444;
+  position: relative;
 }
 
 h1 .icon {
@@ -45,11 +47,16 @@ h1 .subtitle {
   color: red;
 }
 
+table.board.minesweeper {
+  border: 1px double #444;
+}
+
 table.minesweeper td {
   padding: 0;
   background: #116cd6;
   height: 38px;
   width: 38px;
+  border: 1px double #444;
 }
 
 table.minesweeper tr:active {
@@ -90,7 +97,8 @@ table.minesweeper button {
   border-color: #f5ecec #7d7d7d #7d7d7d #f5ecec;
   height: 38px;
   width: 38px;
-  font-family: Courier;
+  font-family: 'Inconsolata', 'Courier Sans', Courier, sans-serif;
+  font-weight: bold;
   font-size: 16px;
   opacity: 0.9;
 }
@@ -153,4 +161,35 @@ section.credits {
   text-align: center;
   opacity: 0.75;
   font-size: 16px;
+}
+
+h1 .links {
+  font-size: 18px;
+  float: right;
+  color: #444;
+}
+
+h1 .links .time-elapsed {
+  font-size: 32px;
+  display: block;
+  font-family: 'Inconsolata', 'Courier Sans', Courier, sans-serif;
+  font-weight: bold;
+}
+
+h1 .mine-count {
+  position: absolute;
+  top: 24px;
+  left: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: red;
+  opacity: 0.8;
+}
+
+h1 .links a {
+  color: #444;
+}
+
+h1 .links a.help {
+  float: right;
 }

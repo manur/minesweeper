@@ -6,6 +6,7 @@
   text-align: left;
   background: #ececeb;
   font-family: 'Inconsolata', 'Courier Sans', Courier, sans-serif;
+  font-size: 18px;
 }
 
 
@@ -37,12 +38,18 @@
   margin-bottom:0;
 }
 
+#facebox .content h1 {
+  text-align: center;
+}
+
 #facebox .close{
   position:absolute;
   top:5px;
   right:5px;
   padding:2px;
   background:#fff;
+  width: 12px;
+  margin: 15px;
 }
 #facebox .close img{
   opacity:0.3;

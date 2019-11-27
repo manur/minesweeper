@@ -4,8 +4,8 @@
     <title>Minesweeper</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="photon-0.1.2-dist/css/photon.min.css">
-    <link rel="stylesheet" href="css/minesweeper.css">
+    <link rel="stylesheet" href="/minesweeper/photon-0.1.2-dist/css/photon.min.css">
+    <link rel="stylesheet" href="/minesweeper/css/minesweeper.css">
 
   </head>
 
@@ -46,14 +46,14 @@
   <script type='text/x-handlebars-template' class='template minesweeper-cell'>
     <td data-padded-column='{{ paddedCol }}' data-padded-row='{{ paddedRow }}' data-is-mine='{{ isMine }}' data-mark='{{ mark }}' class=''>
       <button class='btn'>
-        <span class='mark-as-mine'><img src="images/icon.ico"></span>
+        <span class='mark-as-mine'><img src="/minesweeper/images/icon.ico"></span>
         <span class='value'><div class='red'>{{text}}</div></span>
       </button>
     </td>
   </script>
   <script type='text/x-handlebars-template' class='template app'>
     <h1>
-      <img class="icon" src="images/icon.ico">
+      <img class="icon" src="/minesweeper/images/icon.ico">
       <span class='title'>Minesweeper</span>
       <span class='subtitle'>
         <span class='completed' style='display: none;'>:) <span class='victory-message'></span> <a href='#' class='reload'>Go again</a></span>
@@ -69,16 +69,16 @@
   </script>
 
   <!-- Electron Javascript -->
-  <script src="node_modules/jquery/dist/jquery.js" charset="utf-8"></script>
-  <script src="node_modules/handlebars/dist/handlebars.js" charset="utf-8"></script>
-  <script src="node_modules/underscore/underscore.js" charset="utf-8"></script>
-  <script src="node_modules/backbone/backbone.js" charset="utf-8"></script>
+  <script src="/minesweeper/node_modules/jquery/dist/jquery.js" charset="utf-8"></script>
+  <script src="/minesweeper/node_modules/handlebars/dist/handlebars.js" charset="utf-8"></script>
+  <script src="/minesweeper/node_modules/underscore/underscore.js" charset="utf-8"></script>
+  <script src="/minesweeper/node_modules/backbone/backbone.js" charset="utf-8"></script>
   <script>
     Backbone.$ = $;
   </script>
 
-  <script src="js/core.js" charset="utf-8"></script>
-  <script src="js/minesweeper.js" charset="utf-8"></script>
+  <script src="/minesweeper/js/core.js" charset="utf-8"></script>
+  <script src="/minesweeper/js/minesweeper.js" charset="utf-8"></script>
 
   <!-- 
     Report usage to GA 

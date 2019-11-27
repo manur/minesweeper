@@ -1,0 +1,25 @@
+{
+  "name": "Minesweeper",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Defuse all mines",
+  "productName": "Minesweeper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manur/minesweeper.git"
+  },
+  "keywords": [
+    "game",
+    "minesweeper"
+  ],
+  "author": "GitHub",
+  "license": "CC0",
+  "homepage": "https://manur.github.io/minesweeper/",
+  "devDependencies": {},
+  "dependencies": {
+    "backbone": "*",
+    "handlebars": "^4.5.3",
+    "jquery": "*",
+    "underscore": "*"
+  }
+}

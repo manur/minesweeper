@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minesweeper</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="photon-0.1.2-dist/css/photon.min.css">
+    <link rel="stylesheet" href="css/minesweeper.css">
+
+  </head>
+
+  <body>
+    <!-- Wrap your entire app inside .window -->
+    <div class="window">
+
+      <!-- Your app's content goes inside .window-content -->
+      <div class="window-content">
+          <div id='app-container'>
+          </div>
+      </div>
+    </div>
+
+  </body>
+
+  <script type='text/x-handlebars-template' class='template minesweeper'>
+    <table class='board minesweeper active'>
+    </table>
+
+    <form class='settings' style='display: none;'>
+      <fieldset>
+        <label>Rows</label>
+        <input class='rows' type='number' val='' />
+      </fieldset>
+
+      <fieldset>
+        <label>Columns</label>
+        <input class='cols' type='number' val='' />
+      </fieldset>
+
+      <fieldset>
+        <label>Number of mines</label>
+        <input class='mines' type='number' val='' />
+      </fieldset>
+    </form>
+  </script>
+  <script type='text/x-handlebars-template' class='template minesweeper-cell'>
+    <td data-padded-column='{{ paddedCol }}' data-padded-row='{{ paddedRow }}' data-is-mine='{{ isMine }}' data-mark='{{ mark }}' class=''>
+      <button class='btn'>
+        <span class='mark-as-mine'><img src="images/icon.ico"></span>
+        <span class='value'><div class='red'>{{text}}</div></span>
+      </button>
+    </td>
+  </script>
+  <script type='text/x-handlebars-template' class='template app'>
+    <h1>
+      <img class="icon" src="images/icon.ico">
+      <span class='title'>Minesweeper</span>
+      <span class='subtitle'>
+        <span class='completed' style='display: none;'>:) <span class='victory-message'></span> <a href='#' class='reload'>Go again</a></span>
+        <span class='lost' style='display: none;'><span class='defeat-message'></span> <a href='#' class='reload'>Try again</a></span>
+        <span class='time-elapsed'></span>
+      </span>
+    </h1>
+    <div class='minesweeper-container'>
+    </div>
+    <section class='credits'>
+    Made with &hearts; in Bangalore by <a href='https://manur.github.io'>Manu Raghavan</a>
+    </section>
+  </script>
+
+  <!-- Electron Javascript -->
+  <script src="node_modules/jquery/dist/jquery.js" charset="utf-8"></script>
+  <script src="node_modules/handlebars/dist/handlebars.js" charset="utf-8"></script>
+  <script src="node_modules/underscore/underscore.js" charset="utf-8"></script>
+  <script src="node_modules/backbone/backbone.js" charset="utf-8"></script>
+  <script>
+    Backbone.$ = $;
+  </script>
+
+  <script src="js/core.js" charset="utf-8"></script>
+  <script src="js/minesweeper.js" charset="utf-8"></script>
+
+  <!-- 
+    Report usage to GA 
+    Works in web, does not work on electron's sandbox
+  -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-28376684-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>

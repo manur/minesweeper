@@ -1,0 +1,152 @@
+.window-content {
+  background: #ececeb;
+}
+
+#app-container {
+  width: 608px;
+  margin: 20px auto;
+}
+
+.btn {
+  padding: 0;
+}
+
+h1 {
+  font-size: 28px;
+  margin: 10px 0 50px;
+  color: #444;
+}
+
+h1 .icon {
+  display: inline-block;
+  float: left;
+  height: 90px;
+}
+
+h1 .title {
+  display: inline-block;
+  float: left;
+  margin-left: 20px;
+  font-size: 32px;
+}
+
+h1 .subtitle {
+  margin: 0 0 0 20px;
+  float: left;
+  line-height: 1em;
+  font-size: 1em;
+}
+
+.subtitle .completed {
+  color: #43ad94;
+}
+
+.subtitle .lost {
+  color: red;
+}
+
+table.minesweeper td {
+  padding: 0;
+  background: #116cd6;
+  height: 38px;
+  width: 38px;
+}
+
+table.minesweeper tr:active {
+  background-color: inherit;
+}
+
+
+table.minesweeper tbody,
+table.minesweeper tbody tr,
+table.minesweeper tbody tr td,
+table.minesweeper tbody tr td.pressed button {
+  background: transparent;
+}
+
+table.minesweeper td[data-is-mine="true"].pressed .red {
+  background: rgba(255,0,0,0.4);
+  height: 38px;
+  width: 38px;
+  position: relative;
+  z-index: 4;
+  margin: -37px -46px;
+}
+
+table.minesweeper td[data-is-mine="true"].pressed span.mark-as-mine img,
+table.minesweeper td.mark-as-mine button span.mark-as-mine img {
+  height: 48px;
+  position: relative;
+  margin: -6px -6px;
+}
+
+table.minesweeper button {
+  width: 100%;
+  border-radius: 0;
+  border: 1px solid;
+  border-color: #f5ecec #7d7d7d #7d7d7d #f5ecec;
+  height: 38px;
+  width: 38px;
+  font-family: Courier;
+  font-size: 16px;
+  opacity: 0.9;
+}
+
+table.minesweeper table.active td button:active {
+  border-color: #dea4ab #C78E95 #C78E95 #dea4ab;
+}
+
+table.minesweeper table.active td.pressed button:active {
+  border-color: inherit;
+}
+
+table.minesweeper table td[data-is-mine="true"] span.value {
+  color: white;
+  background: red;
+}
+
+table.minesweeper td.pressed button {
+  border-color: transparent;
+  background: #a59996;
+}
+
+table.minesweeper td button span.value {
+  display: none;
+}
+
+table.minesweeper td button span.mark-as-mine,
+table.minesweeper td.pressed button span.mark-as-mine,
+table.minesweeper td.mark-as-mine button span.value {
+  display: none;
+}
+
+table.minesweeper td[data-is-mine="true"].pressed span.mark-as-mine {
+  display: inline-block;
+}
+
+table.minesweeper td.mark-as-mine button span.mark-as-mine,
+table.minesweeper td.pressed button span.value {
+  display: inline-block;
+  font-weight: bold;
+}
+
+table.minesweeper td.mark-as-mine button span.value {
+  content: 'x';
+  color: gray;
+}
+
+.table-striped tr:active:nth-child(even), tr:active {
+  color: inherit;
+}
+
+a.reload {
+  color: #278a73;
+}
+
+section.credits {
+  margin: 3.5em auto;
+  line-height: 1.5em;
+  text-align: center;
+  opacity: 0.5;
+  font-size: 16px;
+}

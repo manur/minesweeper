@@ -28,7 +28,7 @@
   "dependencies": {
     "jquery": "*",
     "underscore": "*",
-    "handlebars": "4.0.14",
+    "handlebars": "4.5.3",
     "backbone": "*"
   }
 }
